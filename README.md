@@ -1,5 +1,6 @@
 # hamiltonian-lean
 
+[![thread](https://img.shields.io/badge/%F0%9F%A7%B5-how%20it%20works-1DA1F2)](https://x.com/thevelvetmonke)
 [![Lean 4](https://img.shields.io/badge/Lean-4.28.0-blue)](https://lean-lang.org/)
 [![Mathlib](https://img.shields.io/badge/Mathlib-v4.28.0-purple)](https://github.com/leanprover-community/mathlib4)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
@@ -12,7 +13,15 @@ Lean 4 formal proofs for Hamiltonian mechanics on `ℝ × ℝ` with one degree o
 
 **Zero sorry statements.** Standard axioms only (`propext`, `Classical.choice`, `Quot.sound`).
 
-## Why it matters
+## What this is, and why it matters
+
+This library formalizes conservation arguments for Hamiltonian mechanics on `Real x Real`. Its headline theorem, `liouville_theorem`, proves that the Jacobian determinant of the supplied Hamiltonian flow is identically one, the formal volume-preservation conclusion of Liouville's theorem.
+
+The checked argument is concise but important. Equality of mixed partial derivatives makes the Hamiltonian vector field divergence-free. The Jacobian evolution law then says the determinant has derivative zero, and its initial value fixes the constant at one. Separate results prove Hamiltonian energy conservation and conservation of observables whose Poisson bracket with the Hamiltonian vanishes.
+
+The analytic prerequisites are packaged as fields. The development assumes the derivative oracles and chain rules, Clairaut symmetry, a flow and Jacobian, the Jacobian evolution equation, and its time-zero value. It does not construct the flow, establish existence or uniqueness of solutions, or derive those calculus facts from a concrete Hamiltonian.
+
+## Background and motivation
 
 Hamiltonian mechanics is the geometric formulation of conservative classical mechanics. A Hamiltonian `H(q,p)` defines the dynamics through:
 
